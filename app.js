@@ -4,13 +4,9 @@ let board =
                     [" ", " ", " "],
                     [" ", " ", " "],
 
-                ]
+                ];
 
-for (let i in board){
-    for (j in board){
-        console.log(board[i],board[j]);
-    }
-}
+
 
 let player = "X"; 
 
@@ -75,7 +71,44 @@ function chekDraw(){
 
 }
 
-function resetGame(){
+
+function displayboard(){
+    const boardContainaire = document.getElementById("board");
+
+    boardContainaire.innerHTML = " "; 
+
+    for (let row = 0 ; row < 3 ; row++){
+        for (let col = 0; col < 3; col ++){
+            const cellule = document.createElement('div');
+            cellule.classList.add("cellule");
+
+            cellule.textContent = board[row][col];
+
+            cellule.addEventListener("click", function(){
+                MakeMove(row, col);
+            })
+
+            boardContainaire.appendChild(cellule);
+        }
+    }
 
 }
+
+
+function resetGame(){
+
+    board = 
+                [
+                    [" ", " ", " "],
+                    [" ", " ", " "],
+                    [" ", " ", " "],
+
+                ];
+
+    player = "O";
+    displayboard();
+
+}
+
+displayboard();
 
