@@ -62,12 +62,12 @@ function checkWin(player){
 function chekDraw(){
     for (let row = 0 ; row < 3 ; row++){
         for (let col = 0; col < 3; col ++){
-            if (board[row][col] === player){
-                return true;
+            if (board[row][col] === " "){
+                return false;
             }
         }
     }
-    return false;
+    return true;
 
 }
 
